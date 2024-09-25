@@ -1,0 +1,32 @@
+{% extends 'todo/layout.html' %}
+
+{% block content %}
+
+<div style="margin-top: 50px;" class="container">
+    <h1>Task Manager</h1>
+    <form action="{% url 'add' %}" method="post">
+        {% csrf_token %}
+        <div class="field">
+            <label>New task</label>
+            <input type="text" name="title" placeholder="..."><br>
+        </div>
+        <button type="submit">Add task</button>
+    </form>
+
+
+{% for todo in todo_list %}
+<div class="segment">
+    <p class="header">#{{ todo.id }} {{ todo.title }}</p>
+    {% if todo.is_complete == False %}
+    <span class="gray-label">Not Completed</span>
+    <a href="{% url 'update' todo_id=todo.id %}">Close</a>
+    {% else %}
+    <span class="green-label">Completed</span>
+    <a href="{% url 'update' todo_id=todo.id %}">Open</a>
+    {% endif %}
+    <a href="{% url 'delete' todo_id=todo.id %}">Delete</a>
+</div>
+{% endfor %}
+</div>
+
+{% endblock content %}

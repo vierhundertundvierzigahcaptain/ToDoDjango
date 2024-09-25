@@ -1,0 +1,36 @@
+body {
+font-size: 20px;
+font-family: sans-serif;
+font-weight: 700;
+}
+
+.container {
+width: 20%;
+margin: 0 auto;
+}
+
+.segment span {
+padding: 15px;
+border: 1px solid gray;
+border-radius: 15px;
+}
+
+.gray-label {
+color: gray;
+}
+
+.green-label {
+color: green;
+}
+
+.segment a {
+padding: 15px;
+background-color: lightgray;
+border-radius: 15px;
+transition: 0.1s;
+text-decoration: none;
+}
+
+.segment a:hover {
+background-color: gray;
+}
